@@ -1,4 +1,4 @@
-package Entity;
+package somrat.info.japhibernate.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,5 +28,10 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name ;
     }
 }
