@@ -3,8 +3,10 @@ package somrat.info.japhibernate.Entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(query = "select c from Course c", name = "QUERY_ALL_COURSES")
 public class Course {
 
     @Id
