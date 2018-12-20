@@ -14,6 +14,11 @@ public class Course {
 
     protected Course() {}
 
+    public Course(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Course(String name) {
         this.name = name;
     }

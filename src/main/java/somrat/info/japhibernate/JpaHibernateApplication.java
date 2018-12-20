@@ -27,6 +27,8 @@ public class JpaHibernateApplication implements CommandLineRunner {
         Course course = courseRepository.findById(10001L);
         logger.info("Course 10001 is -> {}", course);
 
+        courseRepository.save(new Course("Jpa in 600 steps"));
+
 //        courseRepository.deleteById(10001L);
     }
 
