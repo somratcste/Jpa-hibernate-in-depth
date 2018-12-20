@@ -34,5 +34,19 @@ public class CourseRepositoryTests {
         assertNull(courseRepository.findById(10002L));
     }
 
+    @Test
+    @DirtiesContext
+    public void save_basic() {
+        Course course = courseRepository.findById(10001L);
+        assertEquals("JPA in 50 Steps", course.getName());
+
+        course.setName("JPA in 50 Steps - Updated");
+        courseRepository.save(course);
+
+        Course course1 = courseRepository.findById(10001L);
+        assertEquals("JPA in 50 Steps - Updated", course1.getName());
+
+    }
+
 }
 
