@@ -5,9 +5,11 @@ import org.springframework.stereotype.Repository;
 import somrat.info.japhibernate.Entity.Course;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 
 @Repository
+@Transactional
 public class CourseRepository {
 
     @Autowired
@@ -15,5 +17,10 @@ public class CourseRepository {
 
     public Course findById(Long id) {
         return entityManager.find(Course.class, id);
+    }
+
+    public void deleteById(Long id) {
+        Course course = findById(id);
+        entityManager.remove(course);
     }
 }
