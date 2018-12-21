@@ -1,9 +1,7 @@
 package somrat.info.japhibernate.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NamedQuery(query = "select c from Course c", name = "QUERY_ALL_COURSES")
@@ -13,6 +11,9 @@ public class Course {
     @GeneratedValue
     private Long id;
     private String name;
+
+    @OneToMany(mappedBy = "course")
+    private List<Review>  reviews ;
 
     protected Course() {}
 
@@ -37,8 +38,20 @@ public class Course {
         this.name = name;
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void addReview(Review review) {
+        this.reviews.add(review);
+    }
+
+    public void removeReview(Review review) {
+        this.reviews.remove(review);
+    }
+
     @Override
     public String toString() {
-        return name ;
+        return name + reviews ;
     }
 }

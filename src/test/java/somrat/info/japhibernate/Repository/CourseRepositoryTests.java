@@ -10,7 +10,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import somrat.info.japhibernate.Entity.Course;
+import somrat.info.japhibernate.Entity.Review;
 import somrat.info.japhibernate.JpaHibernateApplication;
+
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JpaHibernateApplication.class)
@@ -18,6 +22,9 @@ public class CourseRepositoryTests {
 
     @Autowired
     private CourseRepository courseRepository;
+
+    @Autowired
+    private EntityManager entityManager;
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -52,6 +59,20 @@ public class CourseRepositoryTests {
     @DirtiesContext
     public void playWithEntityManager() {
         courseRepository.playWithEntityManager();
+    }
+
+    @Test
+    @Transactional
+    public void retrieveReviewsForCourse() {
+        Course course = courseRepository.findById(10001L);
+        logger.info("reviews : {} ", course.getReviews());
+    }
+
+    @Test
+    @Transactional
+    public void retrieveCourseForReviews() {
+        Review review = entityManager.find(Review.class, 50001L);
+        logger.info("reviews : {} ", review.getCourse());
     }
 
 }
