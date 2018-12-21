@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import somrat.info.japhibernate.Entity.Course;
 import somrat.info.japhibernate.Repository.CourseRepository;
+import somrat.info.japhibernate.Repository.StudentRepository;
 
 
 @SpringBootApplication
@@ -18,18 +19,16 @@ public class JpaHibernateApplication implements CommandLineRunner {
     @Autowired
     private CourseRepository courseRepository;
 
+    @Autowired
+    private StudentRepository studentRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(JpaHibernateApplication.class, args);
     }
 
     @Override
     public void run(String... args) throws Exception {
-        Course course = courseRepository.findById(10001L);
-        logger.info("Course 10001 is -> {}", course);
-
-        courseRepository.save(new Course("Jpa in 600 steps"));
-
-//        courseRepository.deleteById(10001L);
+        studentRepository.saveStudentWithPassport();
     }
 
 }
