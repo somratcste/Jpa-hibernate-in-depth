@@ -15,7 +15,7 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 
-public class NamedQueriesJpaHibernateApplicationTest {
+public class NamedQueriesTest {
     @Autowired
     EntityManager entityManager;
 
