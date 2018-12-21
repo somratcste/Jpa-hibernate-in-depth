@@ -34,10 +34,12 @@ public class JpaHibernateApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 //        studentRepository.saveStudentWithPassport();
 //        courseRepository.addHardCodedReviewsForCourse();
-        List<Review> reviews = new ArrayList<>();
-        reviews.add(new Review("5", "Great Hands of staff"));
-        reviews.add(new Review("4", "Hats Off"));
-        courseRepository.addReviewsForCourse(10003L, reviews);
+//        List<Review> reviews = new ArrayList<>();
+//        reviews.add(new Review("5", "Great Hands of staff"));
+//        reviews.add(new Review("4", "Hats Off"));
+//        courseRepository.addReviewsForCourse(10003L, reviews);
+
+        studentRepository.insertHardCodeStudentAndCourse();
     }
 
 }
