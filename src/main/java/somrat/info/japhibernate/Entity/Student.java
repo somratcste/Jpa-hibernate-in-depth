@@ -1,6 +1,7 @@
 package somrat.info.japhibernate.Entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,7 +17,7 @@ public class Student {
     private Passport passport;
 
     @ManyToMany(mappedBy = "students", fetch = FetchType.EAGER)
-    private List<Course> courses;
+    private List<Course> courses = new ArrayList<>();
 
     protected Student() {}
 

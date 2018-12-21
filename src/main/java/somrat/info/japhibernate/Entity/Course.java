@@ -1,6 +1,7 @@
 package somrat.info.japhibernate.Entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,7 @@ public class Course {
         joinColumns = @JoinColumn(name = "course_id"),
             inverseJoinColumns = @JoinColumn(name ="student_id")
     )
-    private List<Student> students;
+    private List<Student> students = new ArrayList<>();
 
     protected Course() {}
 
