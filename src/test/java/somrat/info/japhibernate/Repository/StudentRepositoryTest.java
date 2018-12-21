@@ -13,6 +13,7 @@ import somrat.info.japhibernate.Entity.Student;
 import somrat.info.japhibernate.JpaHibernateApplication;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -30,6 +31,7 @@ public class StudentRepositoryTest {
     EntityManager entityManager;
 
     @Test
+    @Transactional
     public void retrieveStudentAndPassportDetails() {
         Student student = entityManager.find(Student.class, 20001L);
         logger.info("Value of Passport: {}", String.valueOf(student.getPassport()));
