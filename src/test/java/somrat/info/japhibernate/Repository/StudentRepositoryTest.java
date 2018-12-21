@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import somrat.info.japhibernate.Entity.Course;
+import somrat.info.japhibernate.Entity.Passport;
 import somrat.info.japhibernate.Entity.Student;
 import somrat.info.japhibernate.JpaHibernateApplication;
 
@@ -35,6 +36,13 @@ public class StudentRepositoryTest {
     public void retrieveStudentAndPassportDetails() {
         Student student = entityManager.find(Student.class, 20001L);
         logger.info("Value of Passport: {}", String.valueOf(student.getPassport()));
+    }
+
+    @Test
+    @Transactional
+    public void retrievePassportAndStudentDetails() {
+        Passport passport = entityManager.find(Passport.class, 40001L);
+        logger.info("Value of Student: {}", String.valueOf(passport.getStudent()));
     }
 
 }
