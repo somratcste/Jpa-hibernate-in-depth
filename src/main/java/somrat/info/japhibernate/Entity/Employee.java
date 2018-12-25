@@ -3,12 +3,11 @@ package somrat.info.japhibernate.Entity;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "employee_type")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Employee {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)
     private String name;
