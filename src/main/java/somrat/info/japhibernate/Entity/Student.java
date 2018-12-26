@@ -1,5 +1,7 @@
 package somrat.info.japhibernate.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ public class Student {
     private Passport passport;
 
     @ManyToMany(mappedBy = "students", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Course> courses = new ArrayList<>();
 
     protected Student() {}
