@@ -92,6 +92,6 @@ public class Course {
 
     @Override
     public String toString() {
-        return name + reviews ;
+        return String.format("Course[%s]", name);
     }
 }
