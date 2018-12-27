@@ -10,14 +10,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import somrat.info.japhibernate.Entity.Course;
-import somrat.info.japhibernate.Entity.Review;
 import somrat.info.japhibernate.JpaHibernateApplication;
-
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 
 import java.util.Optional;
 

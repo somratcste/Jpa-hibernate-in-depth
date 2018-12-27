@@ -25,6 +25,6 @@ public interface CourseSpringDataRepository extends JpaRepository<Course, Long> 
     @Query(value = "Select  *  From Course c where name like '%100 Steps'", nativeQuery = true)
     List<Course> courseWith100StepsInNameUsingNativeQuery();
 
-    @Query(name = "query_get_100_Step_courses")
-    List<Course> courseWith100StepsInNameUsingNamedQuery();
+//    @Query(name = "query_get_100_Step_courses")
+//    List<Course> courseWith100StepsInNameUsingNamedQuery();
 }
